@@ -78,16 +78,34 @@ Type `yes`, and it will prompt you for approval.
 
 In order to automate the task and start the CI/CD pipeline, you will need a dedicated EC2 instance configured as a self-hosted runner in GitHub Actions. Set it up by registering the instance as a new self-hosted runner in your repository's GitHub Actions settings.
 
+![ec2-runner](https://github.com/user-attachments/assets/6a046f6e-0cab-4245-bdd0-cc76c8888d80)
+
 To receive pipeline deployment notifications, configure your Slack channel's webhook URL. Add this webhook URL as a repository secret in GitHub Actions > Secrets and Variables > Repository secrets, and name it `SLACK_WEBHOOK_URL`.
 
+![slack-web-hook](https://github.com/user-attachments/assets/3c28f8c7-29d9-4933-9548-b9975c89515c)
+
 Upon successful execution, the pipeline will deploy a fully functional application in a 3-Tier Architecture on AWS Cloud.
+
+![runner-1](https://github.com/user-attachments/assets/96b93af5-7e22-40ea-b58f-3de392b5df84)
+
+![runner-2](https://github.com/user-attachments/assets/05afa19a-7a54-401d-86a1-d99810a74eac)
 
 ## Output
 
 ### Sample Application
 
+![app-1](https://github.com/user-attachments/assets/3c6ee116-207c-4bbe-8784-e07812e52a2c)
+
+![app-2](https://github.com/user-attachments/assets/96f5bc10-6331-411e-af30-faf89ca65168)
+
+![app-3](https://github.com/user-attachments/assets/b973b63d-57a3-4f1b-8ce8-52c3a357d9fc)
+
 
 ### Pipeline
 
+![pipeline](https://github.com/user-attachments/assets/015ee177-a3d0-4d6d-9960-4d1e82cf3e52)
+
 
 ### Slack Channel Notifications
+
+![slack-1](https://github.com/user-attachments/assets/fedce9c4-2b79-486b-90d4-f0d49f06dfe1)
