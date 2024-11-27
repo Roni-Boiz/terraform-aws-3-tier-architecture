@@ -44,4 +44,4 @@ variable "server_port" {
 }
 variable "bucket_name" {}
 variable "internal_alb_dns" {}
-variable "rds_aurora_cluster" {}
+variable "rds_aurora_cluster_instance" {}

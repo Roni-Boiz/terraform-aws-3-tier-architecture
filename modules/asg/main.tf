@@ -156,7 +156,7 @@ resource "aws_autoscaling_group" "app_server_asg" {
     version = aws_launch_template.app_server_lt.latest_version
   }
 
-  depends_on = [var.rds_aurora_cluster]
+  depends_on = [var.rds_aurora_cluster_instance]
 }
 
 variable "autoscaling_groups" {

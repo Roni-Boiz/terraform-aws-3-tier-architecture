@@ -80,13 +80,13 @@ module "asg" {
   web_tier_tg_arn = module.alb.web_tier_alb_tg_arn
   app_tier_tg_arn = module.alb.app_tier_alb_tg_arn
 
-  db_host            = module.rds.db_host
-  db_port            = module.rds.db_port
-  db_user            = module.rds.db_username
-  db_password        = module.rds.db_password
-  db_name            = module.rds.db_name
-  domain             = module.cloudfront.cloudfront_domain_name
-  rds_aurora_cluster = module.rds.rds_aurora_cluster
+  db_host                     = module.rds.db_host
+  db_port                     = module.rds.db_port
+  db_user                     = module.rds.db_username
+  db_password                 = module.rds.db_password
+  db_name                     = module.rds.db_name
+  domain                      = module.cloudfront.cloudfront_domain_name
+  rds_aurora_cluster_instance = module.rds.rds_aurora_cluster_primary_instance
 
   bucket_name      = var.bucket_name
   internal_alb_dns = module.alb.internal_alb_dns_name

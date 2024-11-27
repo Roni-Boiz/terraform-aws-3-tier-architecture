@@ -38,4 +38,5 @@ resource "aws_rds_cluster_instance" "replica" {
   engine              = "aurora-mysql"
   availability_zone   = "ap-south-1b"
   publicly_accessible = false
+  promotion_tier      = 1
 }

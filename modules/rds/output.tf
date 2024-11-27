@@ -26,6 +26,6 @@ output "db_name" {
   value = aws_rds_cluster.aurora_cluster.database_name
 }
 
-output "rds_aurora_cluster" {
-  value = aws_rds_cluster.aurora_cluster
+output "rds_aurora_cluster_primary_instance" {
+  value = aws_rds_cluster_instance.primary
 }
