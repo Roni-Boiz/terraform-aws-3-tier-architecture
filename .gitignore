@@ -17,3 +17,4 @@
 *.tfstate.*
 
 .env
+node_modules
