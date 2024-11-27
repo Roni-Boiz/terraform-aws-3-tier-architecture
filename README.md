@@ -2,7 +2,7 @@
 
 ✨ This repository is created to learn and deploy a 3-tier application on aws cloud through Terraform. 
 
-<img src="">
+<img src="https://raw.githubusercontent.com/Roni-Boiz/terraform-aws-3-tier-architecture/refs/heads/main/3TierArch.svg">
 
 ### 🏠 Let's set up the variable for our Infrastructure
 
