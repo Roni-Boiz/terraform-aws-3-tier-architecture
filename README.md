@@ -20,7 +20,7 @@ To use ACM certificate, go to AWS management console --> AWS Certificate Manager
 
 To user Route 53 hosted zone, go to AWS management console --> Route53 --> Hosted Zones and ensure you have a public hosted zone available, if not create one (Not Mandatory).
 
-#### Create Private and Public Key
+#### 🛡 Create Private and Public Key
 
 In order to initiate AWS EC2 instance you need to have a key pair (public and private key). So remove any key (`my-key.pem`, `my-key.pub`) in following directory `./modules/key/*` then reate your own keys using following command:
 
@@ -74,13 +74,15 @@ terraform apply
 
 Type `yes`, and it will prompt you for approval.
 
-## Output
+### ♾️ Automate
 
 In order to automate the task and start the CI/CD pipeline, you will need a dedicated EC2 instance configured as a self-hosted runner in GitHub Actions. Set it up by registering the instance as a new self-hosted runner in your repository's GitHub Actions settings.
 
 To receive pipeline deployment notifications, configure your Slack channel's webhook URL. Add this webhook URL as a repository secret in GitHub Actions > Secrets and Variables > Repository secrets, and name it `SLACK_WEBHOOK_URL`.
 
 Upon successful execution, the pipeline will deploy a fully functional application in a 3-Tier Architecture on AWS Cloud.
+
+## Output
 
 ### Sample Application
 
