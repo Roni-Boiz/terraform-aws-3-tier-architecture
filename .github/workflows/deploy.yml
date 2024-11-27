@@ -1,0 +1,61 @@
+name: Deploy
+
+on:
+  # workflow_run:
+  #   workflows: ["Script"]
+  #   types:
+  #     - completed
+  workflow_dispatch:
+
+jobs:
+  setup:
+    name: Deploy
+    runs-on: [self-hosted, git-workflow]
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Check and Create S3 and DynamoDB Resources
+        run: |
+          sudo chmod +x ./aws-prerequisite-resources.sh
+          ./aws-prerequisite-resources.sh
+
+      - name: Terraform Format
+        id: fmt
+        run: terraform fmt -recursive -check
+
+      - name: Terraform Init
+        id: init
+        run: terraform init
+
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate
+
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -no-color
+
+      - name: Terraform Apply
+        id: apply
+        run: |
+          terraform apply -auto-approve
+          echo "TF_OUT_APPLICATION_URL=$(terraform output -raw cloudfront_distribution_domain_name)" >> $GITHUB_ENV
+          echo "TF_OUT_RDS_PRIMARY=$(terraform output -raw rds_cluster_primary_endpoint)" >> $GITHUB_ENV
+          echo "TF_OUT_RDS_READER=$(terraform output -raw rds_cluster_reader_endpoint)" >> $GITHUB_ENV
+    
+      - name: Send a Slack Notification
+        if: always()
+        uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+          steps: ${{ toJson(steps) }}
+          channel: '#github-actions'
+          message: |
+            CloudFront Domain: ${{ env.TF_OUT_APPLICATION_URL }}
+            RDS Primary Endpoint: ${{ env.TF_OUT_RDS_PRIMARY }}
+            RDS Reader Endpoint: ${{ env.TF_OUT_RDS_READER }}
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
