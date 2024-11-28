@@ -46,6 +46,7 @@ db_username             = ""
 db_password             = ""
 certificate_domain_name = ""
 additional_domain_name  = ""
+bucket_name             = ""
 ```
 
 #### ⚙️ Verify the resources
