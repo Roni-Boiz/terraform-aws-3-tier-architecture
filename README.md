@@ -22,7 +22,7 @@ To user Route 53 hosted zone, go to AWS management console --> Route53 --> Hoste
 
 #### 🛡 Create Private and Public Key
 
-In order to initiate AWS EC2 instance you need to have a key pair (public and private key). So remove any key (`my-key.pem`, `my-key.pub`) in following directory `./modules/key/*` then reate your own keys using following command:
+In order to initiate AWS EC2 instance you need to have a key pair (public and private key). So remove any key (`my-key.pem`, `my-key.pub`) in following directory `./modules/key/*` then recreate your own keys using following command:
 
 ```bash
 $ cd ./modules/key
@@ -77,11 +77,11 @@ Type `yes`, and it will prompt you for approval.
 
 ### ♾️ Automate
 
-In order to automate the task and start the CI/CD pipeline, you will need a dedicated EC2 instance configured as a self-hosted runner in GitHub Actions. Set it up by registering the instance as a new self-hosted runner in your repository's GitHub Actions settings.
+In order to automate the task and start the CI/CD pipeline, you will need a dedicated EC2 instance configured as a self-hosted runner in GitHub Actions. Set it up by registering the instance as a new self-hosted runner in your repository's GitHub Actions settings. Please make sure to attach a suitable role with necessory permission to this instance while laungching or through Instances --> Actions --> Security --> Modify IAM role.
 
 ![ec2-runner](https://github.com/user-attachments/assets/6a046f6e-0cab-4245-bdd0-cc76c8888d80)
 
-To receive pipeline deployment notifications, configure your Slack channel's webhook URL. Add this webhook URL as a repository secret in GitHub Actions > Secrets and Variables > Repository secrets, and name it `SLACK_WEBHOOK_URL`.
+To receive pipeline deployment notifications, configure your Slack channel's webhook URL. Add this webhook URL as a repository secret in GitHub Actions --> Secrets and Variables --> Repository secrets, and name it `SLACK_WEBHOOK_URL`.
 
 ![slack-web-hook](https://github.com/user-attachments/assets/3c28f8c7-29d9-4933-9548-b9975c89515c)
 
