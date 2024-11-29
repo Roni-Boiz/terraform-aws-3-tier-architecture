@@ -77,7 +77,7 @@ Type `yes`, and it will prompt you for approval.
 
 ### ♾️ Automate
 
-In order to automate the task and start the CI/CD pipeline, you will need a dedicated EC2 instance configured as a self-hosted runner in GitHub Actions. Set it up by registering the instance as a new self-hosted runner in your repository's GitHub Actions settings. Please make sure to attach a suitable role with necessory permission to this instance while laungching or through Instances --> Actions --> Security --> Modify IAM role.
+In order to automate the task and start the CI/CD pipeline, you will need a dedicated EC2 instance configured as a self-hosted runner in GitHub Actions. Set it up by registering the instance as a new self-hosted runner in your repository's GitHub Actions settings then name the runner as `git-workflow` as shown below. Please make sure to attach a suitable role with necessory permission to this instance while laungching or through Instances --> Actions --> Security --> Modify IAM role.
 
 ![ec2-runner](https://github.com/user-attachments/assets/6a046f6e-0cab-4245-bdd0-cc76c8888d80)
 
