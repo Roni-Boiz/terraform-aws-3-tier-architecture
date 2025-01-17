@@ -81,6 +81,9 @@ In order to automate the task and start the CI/CD pipeline, you will need a dedi
 
 ![ec2-runner](https://github.com/user-attachments/assets/6a046f6e-0cab-4245-bdd0-cc76c8888d80)
 
+> [!Note]
+> If you not aware or doing this type of work in first time, please refer my [terraform-aws-2-tier-architecture](https://github.com/Roni-Boiz/terraform-aws-2-tier-architecture) --> Steps to setup CICD Pipeline
+
 To receive pipeline deployment notifications, configure your Slack channel's webhook URL. Add this webhook URL as a repository secret in GitHub Actions --> Secrets and Variables --> Repository secrets, and name it `SLACK_WEBHOOK_URL`.
 
 ![slack-web-hook](https://github.com/user-attachments/assets/3c28f8c7-29d9-4933-9548-b9975c89515c)
